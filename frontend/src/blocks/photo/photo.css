@@ -1,0 +1,22 @@
+.photo {
+  max-width: 880px;
+  margin: 0 auto 66px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 17px;
+}
+
+@media screen and (max-width: 1067px) {
+  .photo {
+    grid-template-columns: 1fr 1fr;
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .photo {
+    grid-template-columns: 1fr;
+    margin: 0 auto 48px;
+  }
+}

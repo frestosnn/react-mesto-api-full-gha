@@ -1,0 +1,23 @@
+.photo__delete {
+  background-image: url('../../../images/Group.svg');
+  width: 18px;
+  height: 19px;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: cover;
+  top: 20px;
+  right: 20px;
+  z-index: 0;
+}
+
+.photo__delete_inactive {
+  display: none;
+}
+
+.photo__delete:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

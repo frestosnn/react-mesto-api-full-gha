@@ -1,0 +1,7 @@
+.popup__container_type_sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}

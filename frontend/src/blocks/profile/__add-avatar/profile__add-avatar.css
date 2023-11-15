@@ -1,0 +1,23 @@
+.profile__add-avatar {
+  position: absolute;
+  opacity: 0;
+  width: 26px;
+  height: 26px;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-image: url('../../../images/editAvatar.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile__add-avatar:hover {
+  opacity: 1;
+}

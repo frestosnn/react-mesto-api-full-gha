@@ -1,0 +1,14 @@
+.photo__item {
+  width: 282px;
+  background: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media screen and (max-width: 1067px) {
+  .photo__item {
+    margin: 0 auto;
+  }
+}

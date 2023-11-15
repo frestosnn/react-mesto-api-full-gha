@@ -1,0 +1,4 @@
+.photo__wrapp {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,5 @@
+.photo__text-area {
+  margin: 25px 15px 31px 21px;
+  display: flex;
+  justify-content: space-between;
+}
