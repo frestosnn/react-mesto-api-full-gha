@@ -1,5 +1,9 @@
 export const BASE_URL = 'https://api.frestosnn.students.nomoredomainsmonster.ru';
 
+//'http://localhost:3000';
+
+//'https://api.frestosnn.students.nomoredomainsmonster.ru';
+
 export const checkResponse = res => {
   if (!res.ok) {
     // если ошибка, отклоняем промис
