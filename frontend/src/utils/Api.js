@@ -82,8 +82,7 @@ export class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'api.frestosnn.students.nomoredomainsmonster.ru',
-  //baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.frestosnn.students.nomoredomainsmonster.ru',
   headers: {
     'Content-Type': 'application/json',
     authorization: `Bearer ${token}`,
