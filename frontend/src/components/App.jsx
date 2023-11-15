@@ -67,7 +67,7 @@ function App() {
 
   useEffect(() => {
     checkToken();
-  }, []);
+  }, [isLoggedIn]);
 
   const checkToken = () => {
     //если есть токен в LocalStorage
