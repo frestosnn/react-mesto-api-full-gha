@@ -1,7 +1,6 @@
-export const BASE_URL =
-  //'https://api.frestosnn.students.nomoredomainsmonster.ru';
+export const BASE_URL = 'api.frestosnn.students.nomoredomainsmonster.ru';
 
-  'http://localhost:3000';
+//'http://localhost:3000';
 
 //'https://api.frestosnn.students.nomoredomainsmonster.ru';
 
