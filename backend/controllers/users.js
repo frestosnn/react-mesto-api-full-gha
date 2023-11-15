@@ -6,7 +6,7 @@ const ValidationError = require('../errors/validation-errors');
 const PathError = require('../errors/path-errors');
 const BdError = require('../errors/bd-errors');
 
-const { JWT_SECRET = 'secret' } = process.env;
+const { JWT_SECRET = 'secret', NODE_ENV = 'production' } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
@@ -157,9 +157,13 @@ module.exports.login = (req, res, next) => {
         }
 
         // генерируем токен пользователя
-        const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
-          expiresIn: '7d',
-        });
+        const token = jwt.sign(
+          { _id: user._id },
+          NODE_ENV === 'production' ? JWT_SECRET : 'secret',
+          {
+            expiresIn: '7d',
+          },
+        );
 
         // отдаем пользователю токен
         return res.status(200).send({ token });
