@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'http://api.frestosnn.students.nomoredomainsmonster.ru';
 
 export const checkResponse = res => {
   if (!res.ok) {
@@ -13,6 +13,7 @@ export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ password, email })
@@ -23,6 +24,7 @@ export const authorize = (login, pass) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ password: pass, email: login })
@@ -32,8 +34,9 @@ export const authorize = (login, pass) => {
 export const getUser = token => {
   return fetch(`${BASE_URL}/users/me`, {
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
+      authorization: `Bearer ${token}`
     }
   }).then(res => checkResponse(res));
 };

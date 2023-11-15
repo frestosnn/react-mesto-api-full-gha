@@ -11,7 +11,7 @@ const { JWT_SECRET = 'secret', NODE_ENV = 'production' } = process.env;
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.status(200).send(users))
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 module.exports.createUser = (req, res, next) => {

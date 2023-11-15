@@ -17,10 +17,12 @@ function Card({ card, onCardClick, onCardDelete, onCardLike }) {
   const currentUserInfo = React.useContext(CurrentUserContext);
 
   //условие для отображения иконки удаления
-  const isOwn = card.owner._id === currentUserInfo._id;
+  const isOwn = card.owner === currentUserInfo._id;
 
   //условия для отображения лайков
-  const isLiked = card.likes.some(c => c._id === currentUserInfo._id);
+  const isLiked = card.likes.some(card => {
+    return card === currentUserInfo._id;
+  });
 
   return (
     <div className="photo__item">

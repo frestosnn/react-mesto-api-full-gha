@@ -71,7 +71,6 @@ function App() {
 
   const checkToken = () => {
     //если есть токен в LocalStorage
-
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
@@ -84,7 +83,7 @@ function App() {
             setLoggedIn(true);
 
             //изменили email
-            setEmail(res.data.email);
+            setEmail(res.email);
 
             //отправили на страницу
             navigate('/', { replace: true });
@@ -175,7 +174,7 @@ function App() {
 
   const handleCardLike = card => {
     // Определяем, лайкнута ли карточка
-    const isLiked = card.likes.some(like => like._id === currentUser._id);
+    const isLiked = card.likes.some(like => like === currentUser._id);
 
     // В зависимости от того, лайкнута карточка или нет, отправляем разные запросы к API
     if (isLiked) {

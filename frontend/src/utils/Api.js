@@ -1,3 +1,5 @@
+const token = localStorage.getItem('jwt');
+
 export class Api {
   constructor(options) {
     this.url = options.baseUrl;
@@ -80,9 +82,10 @@ export class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72',
+  baseUrl: 'http://api.frestosnn.students.nomoredomainsmonster.ru',
   headers: {
-    authorization: '2f3c4c0e-a26e-49e4-99f6-32f26b0c276a',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    authorization: `Bearer ${token}`,
+    Accept: '*/*'
   }
 });

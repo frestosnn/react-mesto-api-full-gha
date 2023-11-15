@@ -2,16 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
+require('dotenv').config();
+
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
+
 const { createUser, login } = require('./controllers/users');
 
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
-require('dotenv').config();
+
 const errorHandler = require('./middlewares/error-handler');
 const PathError = require('./errors/path-errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const auth = require('./middlewares/auth');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
@@ -54,7 +58,7 @@ app.post(
       avatar: Joi.string()
         .uri()
         .pattern(
-          /(https?:\/\/)(w{3}\.)?(((\d{1,3}\.){3}\d{1,3})|((\w-?)+\.(ru|com)))(:\d{2,5})?((\/.+)+)?\/?#?/,
+          /(https?:\/\/)(w{3}\.)?(((\d{1,3}\.){3}\d{1,3})|((\w-?)+\.\w+))(:\d{2,5})?((\/.+)+)?\/?#?/,
         ),
       email: Joi.string().email().required(),
       password: Joi.string().min(8).required(),
@@ -66,15 +70,17 @@ app.post(
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
 
-app.use(errorLogger);
-
-// обработка ошибок celebrate
-app.use(errors());
+app.use(auth);
 
 app.use((req, res, next) => {
   const err = new PathError('Not Found: Маршрут не найден');
   next(err);
 });
+
+app.use(errorLogger);
+
+// обработка ошибок celebrate
+app.use(errors());
 
 app.use(errorHandler);
 
