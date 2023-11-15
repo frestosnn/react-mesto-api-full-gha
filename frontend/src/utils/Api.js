@@ -82,7 +82,7 @@ export class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://api.frestosnn.students.nomoredomainsmonster.ru',
+  baseUrl: 'https://api.frestosnn.students.nomoredomainsmonster.ru',
   headers: {
     'Content-Type': 'application/json',
     authorization: `Bearer ${token}`,
